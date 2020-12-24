@@ -21,7 +21,7 @@ class LinearRegression(nn.Module):
     return self.linear(x)
 
 learning_rate = 1e-2
-iterations = 20
+iterations = 40
 loss = nn.MSELoss()
 model = LinearRegression(n_features, output);
 optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
@@ -37,7 +37,7 @@ for epoch in range(iterations):
   optimizer.step()
   optimizer.zero_grad()
   
-  if epoch % 2 == 0:
+  if epoch % 8 == 0:
     print(f'epoch {epoch+1}: loss = {l:.8f}')
 
 print(f'Prediction after training: f(5) = {model(X_test).item():.3f}')
